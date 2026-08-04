@@ -71,3 +71,95 @@ body{
     align-items: center;
     margin-bottom: 20px;
 }
+
+.employee-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.employee-card{
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e5e7ed;
+}
+
+.employee-icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eff6ff;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.employee-card h3{
+    margin-bottom: 8px;
+}
+
+.employee-card p{
+    margin-bottom: 8px;
+}
+
+.employee-card span{
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.card-action{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.card-action button{
+    flex: 1;
+    padding: 9px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.edit-btn{
+    background: #f59e0b;
+    color: white;
+}
+
+.delete-btn{
+    background: #dc2626;
+    color: white;
+}
+
+/* ----------------------Responsive mobile---------------------------- */
+
+@media(max-width: 768px){
+    .toolbar{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #addEmployeeBtn{
+        width: 100%;
+    }
+
+    .section-header{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    #departmentFilter{
+        width: 100%;
+    }
+
+    .employee-grid{
+        grid-template-columns: 1fr;
+    }
+    
+}
+
+
+
