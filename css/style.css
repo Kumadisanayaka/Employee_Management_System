@@ -26,3 +26,48 @@ body{
     margin: 30px auto;
     padding: 0 20px;
 }
+
+.toolbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.search-box{
+    flex: 1;
+}
+
+.search-box label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.search-box input{
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+#addEmployeeBtn{
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #2563ed;
+    color: white;
+    font-size: 15px;
+    font-weight: 600px;
+    cursor: pointer;
+}
+
+.section-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
