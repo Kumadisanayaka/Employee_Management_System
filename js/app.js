@@ -1,71 +1,72 @@
-import { getEmployees,getEmployee,addEmployee, getDesignationsByDeptId } from "./api.js";
+import { getEmployees} from "./api.js";
 
-// async function loadEmployees() {
+const employeeCount = document.getElementById("employeeCount");
+
+async function loadEmployees() {
+    const employees = await getEmployees();
+
+    employeeCount.textContent = `${employees.length} Employees`;
     
-//     const employees = await getEmployees();
+    employees.forEach(employee => {
+    employeeContainer.innerHTML += `
+        <div class="employee-card">
 
-//     employees.forEach(employee => {
-//         employeeContainer.innerHTML += `
-//              <div class="employee-card">
-                   
-//                 <h3>${employee.fullName}</h3>
-//                 <p>Employee ID : ${employee.employeeId}</p>
-//                 <p>Department : ${employee.departmentName}</p>
-//                 <p></p>
-                    
-//             </div>
-//         `;
-//     });
+            <div class="employee-card-header">
+                <h3>${employee.fullName}</h3>
+                <span>ID: ${employee.employeeId}</span>
+            </div>
 
-//     console.log(employees);
-// }
+            <div class="employee-details">
 
-// loadEmployees();
+                <p>
+                    <strong>Email:</strong>
+                    ${employee.email}
+                </p>
 
-// async function loadEmployee() {
-//     const employee = await getEmployee(8241);
+                <p>
+                    <strong>Phone:</strong>
+                    ${employee.phone}
+                </p>
 
-//     console.log(employee);
+                <p>
+                    <strong>Gender:</strong>
+                    ${employee.gender}
+                </p>
 
-//     employeeContainer.innerHTML = `
-//         <div class="employee-card">
-//             <h2>${employee.fullName}</h2>
-//             <p>Employee ID: ${employee.employeeId}</p>
-//             <p>Department ID: ${employee.departmentId}</p>
-//             <p>Contact No: ${employee.phone}</p>
-//         </div>
-//     `;
-// }
+                <p>
+                    <strong>Date of Joining:</strong>
+                    ${employee.dateOfJoining}
+                </p>
 
-// loadEmployee();
+                <p>
+                    <strong>Department:</strong>
+                    ${employee.departmentName}
+                </p>
 
-const newEmployee = {
-    fullName: "Pathum",
-    email: "pathum@gmail.com",
-    phone: "0705614020",
-    gender: "male",
-    dateOfJoining: "2026-08-04T17:11:43.041Z",
-    departmentId: 2,
-    designationId: 3,
-    employeeType: "string",
-    salary: 1500
-};
+                <p>
+                    <strong>Designation:</strong>
+                    ${employee.designationName}
+                </p>
 
+                <p>
+                    <strong>Employee Type:</strong>
+                    ${employee.employeeType}
+                </p>
 
-async function createEmployee() {
-    const result = await addEmployee(newEmployee);
+                <p>
+                    <strong>Salary:</strong>
+                    $${employee.salary}
+                </p>
 
-    console.log(result);
+            </div>
+
+        </div>
+    `;
+});
+
+    console.log(employees);
+    
 }
 
-createEmployee();
-
-// async function loadDesignations() {
-//     const designations = await getDesignationsByDeptId(2);
-
-//     console.log(designations);
-// }
-
-// loadDesignations();
-
+loadEmployees();
 
