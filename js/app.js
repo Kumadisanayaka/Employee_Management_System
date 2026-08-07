@@ -46,65 +46,44 @@ searchInput.addEventListener("input",() => {
 //------render Employees--------//
 
 function renderEmployees(employeeList) {
-    
+
     employeeContainer.innerHTML = "";
 
+
     employeeList.forEach(employee => {
+
         employeeContainer.innerHTML += `
-            <div class="employee-card">
 
-            <div class="employee-card-header">
-                <h3>${employee.fullName}</h3>
-                <span>ID: ${employee.employeeId}</span>
-            </div>
+        <div class="employee-card">
 
-            <div class="employee-details">
+            <h3>${employee.fullName}</h3>
 
-                <p>
-                    <strong>Email:</strong>
-                    ${employee.email}
-                </p>
+            <p>
+                Department:
+                ${employee.departmentName}
+            </p>
 
-                <p>
-                    <strong>Phone:</strong>
-                    ${employee.phone}
-                </p>
+            <p>
+                Designation:
+                ${employee.designationName}
+            </p>
 
-                <p>
-                    <strong>Gender:</strong>
-                    ${employee.gender}
-                </p>
+            <p>
+                Type:
+                ${employee.employeeType}
+            </p>
 
-                <p>
-                    <strong>Date of Joining:</strong>
-                    ${employee.dateOfJoining}
-                </p>
 
-                <p>
-                    <strong>Department:</strong>
-                    ${employee.departmentName}
-                </p>
-
-                <p>
-                    <strong>Designation:</strong>
-                    ${employee.designationName}
-                </p>
-
-                <p>
-                    <strong>Employee Type:</strong>
-                    ${employee.employeeType}
-                </p>
-
-                <p>
-                    <strong>Salary:</strong>
-                    $${employee.salary}
-                </p>
-
-            </div>
+            <button class="view-btn" data-id="${employee.employeeId}">
+                View Details
+            </button>
 
         </div>
+
         `;
+
     });
+
 }
 
 //-----------------Load Departments----------------//
@@ -115,7 +94,7 @@ async function loadDepartments() {
 
     departments.forEach(department =>{
         departmentFilter.innerHTML += `
-            <option value="${department.departmentId}">
+            <option value="${department.departmentName}">
                     ${department.departmentName}
             </option>
         `
@@ -125,4 +104,21 @@ async function loadDepartments() {
 
 loadDepartments();
 
+departmentFilter.addEventListener("change",()=>{
 
+    const selectedDepartment = (departmentFilter.value);
+
+    if (selectedDepartment === "all") {
+        renderEmployees(employees);
+        employeeCount.textContent = `${employees.length} Employees`;
+        return;
+    }
+
+    const filteredEmployees = employees.filter(employee =>{
+        return employee.departmentName === (selectedDepartment);
+    })
+
+    renderEmployees(filteredEmployees);
+    employeeCount.textContent = `${filteredEmployees.length} Employees`;
+
+})
