@@ -1,8 +1,10 @@
-import { getEmployees} from "./api.js";
+import { getEmployees,getDepartments} from "./api.js";
 
 const employeeCount = document.getElementById("employeeCount");
 let searchInput = document.getElementById("searchInput");
 let employees = [];
+let departmentFilter = document.getElementById("departmentFilter");
+
 
 async function loadEmployees() {
      employees = await getEmployees();
@@ -20,7 +22,15 @@ loadEmployees();
 
 searchInput.addEventListener("input",() => {
     
-    const searchText = searchInput.value.toLowerCase();
+    const searchText = searchInput.value.toLowerCase().trim();
+
+    if(searchText === ""){
+
+        renderEmployees(employees);
+        employeeCount.textContent = `${employees.length} Employees`;
+
+        return;
+    }
 
     const filteredEmployees = employees.filter(employee => {
 
@@ -96,4 +106,23 @@ function renderEmployees(employeeList) {
         `;
     });
 }
+
+//-----------------Load Departments----------------//
+
+async function loadDepartments() {
+    
+    const departments = await getDepartments();
+
+    departments.forEach(department =>{
+        departmentFilter.innerHTML += `
+            <option value="${department.departmentId}">
+                    ${department.departmentName}
+            </option>
+        `
+    })
+
+}
+
+loadDepartments();
+
 
