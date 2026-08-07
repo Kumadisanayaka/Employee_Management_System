@@ -1,10 +1,22 @@
 import { getEmployees,getDepartments} from "./api.js";
 
 const employeeCount = document.getElementById("employeeCount");
-let searchInput = document.getElementById("searchInput");
-let employees = [];
-let departmentFilter = document.getElementById("departmentFilter");
+const searchInput = document.getElementById("searchInput");
+const departmentFilter = document.getElementById("departmentFilter");
+const employeeContainer = document.getElementById("employeeContainer");
 
+const fullName = document.getElementById("fullName");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const gender = document.getElementById("gender");
+const department = document.getElementById("department");
+const designation = document.getElementById("designation");
+const employeeType = document.getElementById("employeeType");
+const salary = document.getElementById("salary");
+const dateOfJoining = document.getElementById("dateOfJoining");
+const employeeIdText = document.getElementById("employeeId");
+
+let employees = [];
 
 async function loadEmployees() {
      employees = await getEmployees();
@@ -122,3 +134,16 @@ departmentFilter.addEventListener("change",()=>{
     employeeCount.textContent = `${filteredEmployees.length} Employees`;
 
 })
+
+employeeContainer.addEventListener("click", (event) => {
+
+    if (!event.target.classList.contains("view-btn")) {
+        return;
+    }
+
+    const employeeId = event.target.dataset.id;
+
+    window.location.href = `employee-details.html?id=${employeeId}`;
+
+});
+
