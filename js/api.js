@@ -43,3 +43,19 @@ export async function getEmployeeById(id){
 
 }
 
+//--------------Delete employee---------------//
+
+export async function deleteEmployeeById(id) {
+    
+    const response = await fetch(`${BASE_URL}/DeleteEmployee?id=${id}`,{
+        method: "DELETE"
+    });
+
+    if (!response.ok) {
+        throw new Error("Delete Failed");
+        
+    }
+
+    return true;
+}
+
