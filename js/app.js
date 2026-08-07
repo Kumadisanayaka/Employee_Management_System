@@ -7,9 +7,8 @@ let employees = [];
 async function loadEmployees() {
      employees = await getEmployees();
 
-    employeeCount.textContent = `${employees.length} Employees`;
-    
     renderEmployees(employees);
+    employeeCount.textContent = `${renderEmployees.length} Employees`;
 
     console.log(employees);
     
@@ -17,13 +16,16 @@ async function loadEmployees() {
 
 loadEmployees();
 
+//--------search employee------------//
+
 searchInput.addEventListener("input",() => {
     
     const searchText = searchInput.value.toLowerCase();
 
     const filteredEmployees = employees.filter(employee => {
 
-        return employee.fullName.toLowerCase().includes(searchText);
+        return employee.fullName.toLowerCase().includes(searchText) || 
+                employee.email.toLowerCase().includes(searchText);
 
     });
 
