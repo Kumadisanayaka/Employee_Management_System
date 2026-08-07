@@ -29,3 +29,17 @@ export async function  getDepartments() {
     
 }
 
+//----------get employee details by ID----------//
+
+export async function getEmployeeById(id){
+
+    const response = await fetch(`${BASE_URL}/${id}`);
+
+    if(!response.ok){
+        throw new Error("Failed to fetch employee");
+    }
+
+    return await response.json();
+
+}
+
