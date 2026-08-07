@@ -1,15 +1,45 @@
 import { getEmployees} from "./api.js";
 
 const employeeCount = document.getElementById("employeeCount");
+let searchInput = document.getElementById("searchInput");
+let employees = [];
 
 async function loadEmployees() {
-    const employees = await getEmployees();
+     employees = await getEmployees();
 
     employeeCount.textContent = `${employees.length} Employees`;
     
-    employees.forEach(employee => {
-    employeeContainer.innerHTML += `
-        <div class="employee-card">
+    renderEmployees(employees);
+
+    console.log(employees);
+    
+}
+
+loadEmployees();
+
+searchInput.addEventListener("input",() => {
+    
+    const searchText = searchInput.value.toLowerCase();
+
+    const filteredEmployees = employees.filter(employee => {
+
+        return employee.fullName.toLowerCase().includes(searchText);
+
+    });
+
+    renderEmployees(filteredEmployees);
+    
+})
+
+//------render Employees--------//
+
+function renderEmployees(employeeList) {
+    
+    employeeContainer.innerHTML = "";
+
+    employeeList.forEach(employee => {
+        employeeContainer.innerHTML += `
+            <div class="employee-card">
 
             <div class="employee-card-header">
                 <h3>${employee.fullName}</h3>
@@ -61,12 +91,7 @@ async function loadEmployees() {
             </div>
 
         </div>
-    `;
-});
-
-    console.log(employees);
-    
+        `;
+    });
 }
-
-loadEmployees();
 
