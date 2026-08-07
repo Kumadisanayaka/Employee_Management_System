@@ -1,4 +1,4 @@
-import { getEmployees,getDepartments} from "./api.js";
+import { getEmployees,getDepartments,deleteEmployeeById} from "./api.js";
 
 const employeeCount = document.getElementById("employeeCount");
 const searchInput = document.getElementById("searchInput");
@@ -90,6 +90,10 @@ function renderEmployees(employeeList) {
                 View Details
             </button>
 
+            <button class="delete-btn" data-id="${employee.employeeId}">
+                Delete
+            </button>
+
         </div>
 
         `;
@@ -116,6 +120,7 @@ async function loadDepartments() {
 
 loadDepartments();
 
+//-------View Employee full details----------------//
 departmentFilter.addEventListener("change",()=>{
 
     const selectedDepartment = (departmentFilter.value);
@@ -135,6 +140,8 @@ departmentFilter.addEventListener("change",()=>{
 
 })
 
+//------------Delete Employee------------------//
+
 employeeContainer.addEventListener("click", (event) => {
 
     if (!event.target.classList.contains("view-btn")) {
@@ -144,6 +151,46 @@ employeeContainer.addEventListener("click", (event) => {
     const employeeId = event.target.dataset.id;
 
     window.location.href = `employee-details.html?id=${employeeId}`;
+
+});
+
+
+
+employeeContainer.addEventListener("click", async function(e){
+
+
+    if(e.target.classList.contains("delete-btn")){
+
+
+        const id = e.target.dataset.id;
+
+
+        const confirmDelete = confirm(
+            "Are you sure you want to delete this employee?"
+        );
+
+
+        if(confirmDelete){
+
+            try{
+
+                await deleteEmployeeById(id);
+
+                alert("Employee deleted successfully");
+
+                location.reload();
+
+
+            }catch(error){
+
+                console.log(error);
+                alert("Delete failed");
+
+            }
+
+        }
+
+    }
 
 });
 
