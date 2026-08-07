@@ -8,7 +8,7 @@ async function loadEmployees() {
      employees = await getEmployees();
 
     renderEmployees(employees);
-    employeeCount.textContent = `${renderEmployees.length} Employees`;
+    employeeCount.textContent = `${employees.length} Employees`;
 
     console.log(employees);
     
@@ -30,7 +30,7 @@ searchInput.addEventListener("input",() => {
     });
 
     renderEmployees(filteredEmployees);
-    
+    employeeCount.textContent = `${renderEmployees.length} Employees`;
 })
 
 //------render Employees--------//
