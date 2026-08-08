@@ -120,7 +120,7 @@ async function loadDepartments() {
 
 loadDepartments();
 
-//-------View Employee full details----------------//
+
 departmentFilter.addEventListener("change",()=>{
 
     const selectedDepartment = (departmentFilter.value);
@@ -140,7 +140,7 @@ departmentFilter.addEventListener("change",()=>{
 
 })
 
-//------------Delete Employee------------------//
+//-------View Employee full details----------------//
 
 employeeContainer.addEventListener("click", (event) => {
 
@@ -155,6 +155,7 @@ employeeContainer.addEventListener("click", (event) => {
 });
 
 
+//------------Delete Employee------------------//
 
 employeeContainer.addEventListener("click", async function(e){
 
