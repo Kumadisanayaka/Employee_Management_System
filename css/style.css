@@ -72,9 +72,7 @@ body{
     margin-bottom: 20px;
 }
 
-/* =========================
-Employee Cards (App.js Component)
-========================= */
+/*---------------Employee Cards (App.js Component)-------------*/
 
 .employee-grid{
 
@@ -83,7 +81,6 @@ Employee Cards (App.js Component)
     gap:20px;
 
 }
-
 
 .employee-card{
     background:white;
@@ -94,28 +91,22 @@ Employee Cards (App.js Component)
 
 }
 
-
 .employee-card:hover{
     transform:translateY(-5px);
     box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
-
 
 .employee-card h3{
     margin-bottom:12px;
     color:#1e293b;
 }
 
-
 .employee-card p{
     margin-bottom:8px;
     color:#475569;
 }
 
-
-
-
-/* Buttons inside Employee Card */
+/*------------ Buttons inside Employee Card ------------ */
 
 .view-btn,
 .delete-btn{
@@ -129,36 +120,25 @@ Employee Cards (App.js Component)
 
 }
 
-
-
 .view-btn{
     background:#2563eb;
     color:white;
 }
 
-
-
 .view-btn:hover{
     background:#1d4ed8;
 }
-
-
 
 .delete-btn{
     background:#dc2626;
     color:white;
 }
 
-
-
 .delete-btn:hover{
     background:#b91c1c;
 }
 
-/* =========================
-Delete Modal (App.js Component)
-========================= */
-
+/* -----------Delete Modal (App.js Component)----------- */
 
 .delete-modal{
     position:fixed;
@@ -173,9 +153,6 @@ Delete Modal (App.js Component)
     z-index:999;
 }
 
-
-
-
 .modal-box{
     background:white;
     width:350px;
@@ -185,9 +162,6 @@ Delete Modal (App.js Component)
     animation:popup .2s ease;
 
 }
-
-
-
 
 @keyframes popup{
 
@@ -211,32 +185,21 @@ Delete Modal (App.js Component)
 
 }
 
-
-
-
 .modal-box h3{
     margin-bottom:10px;
     color:#1e293b;
 }
-
-
 
 .modal-box p{
     color:#64748b;
     margin-bottom:20px;
 }
 
-
-
-
 .modal-buttons{
     display:flex;
     justify-content:center;
     gap:15px;
 }
-
-
-
 
 .modal-buttons button{
     padding:10px 20px;
@@ -246,32 +209,21 @@ Delete Modal (App.js Component)
     font-weight:600;
 }
 
-
-
 #cancelDelete{
     background:#e5e7eb;
     color:#334155;
 }
-
-
 
 #confirmDelete{
     background:#dc2626;
     color:white;
 }
 
-
-
 #confirmDelete:hover{
     background:#b91c1c;
 }
 
-
-
-
-/* =========================
-Mobile Responsive
-========================= */
+/*------------Mobile Responsive------------*/
 
 
 @media(max-width:768px){
@@ -282,9 +234,6 @@ Mobile Responsive
         grid-template-columns:1fr;
 
     }
-
-
-
     .modal-box{
 
         width:90%;
@@ -333,16 +282,10 @@ Employee Details Page
 
 }
 
-
-
 .back-btn:hover{
     background:#1d4ed8;
 
 }
-
-
-
-
 
 /* Details Card */
 
@@ -355,10 +298,6 @@ Employee Details Page
 
 }
 
-
-
-
-
 /* Each Detail Row */
 
 .detail-row{
@@ -369,16 +308,10 @@ Employee Details Page
     align-items:center;
 }
 
-
-
 .detail-row:last-child{
     border-bottom:none;
 
 }
-
-
-
-
 
 /* Left Side Label */
 
@@ -387,10 +320,6 @@ Employee Details Page
     color:#475569;
 }
 
-
-
-
-
 /* Right Side Value */
 
 .detail-row span:last-child{
@@ -398,14 +327,49 @@ Employee Details Page
     font-weight:500;
 }
 
-
-
-
-
 /* Hover Effect */
 
 .detail-row:hover{
     background:#f8fafc;
+
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+
+
+    .employee-details{
+
+        margin:25px 15px;
+
+    }
+
+    .details-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .detail-row{
+
+        grid-template-columns:1fr;
+
+        gap:8px;
+
+    }
+
+    .detail-row .label{
+
+        font-size:14px;
+
+    }
+
+
 
 }
 
@@ -497,53 +461,26 @@ Employee Details Page
     transition: 0.2s;
 }
 
+@media(max-width: 768px){
 
-
-
-
-
-
-/* Mobile Responsive */
-
-@media(max-width:768px){
-
-
-    .employee-details{
-
-        margin:25px 15px;
-
+    .page-header{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
     }
 
-
-
-    .details-header{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:15px;
-
+    #employeeForm{
+        padding: 20px;
     }
 
-
-
-    .detail-row{
-
-        grid-template-columns:1fr;
-
-        gap:8px;
-
+    .form-buttons{
+        flex-direction: column;
     }
 
-
-
-    .detail-row .label{
-
-        font-size:14px;
-
+    .form-buttons a,
+    .form-buttons button{
+        width: 100%;
+        text-align: center;
     }
-
-
 
 }
