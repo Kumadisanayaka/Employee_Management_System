@@ -320,10 +320,6 @@ Employee Details Page
 
 }
 
-
-
-
-
 /* Back Button */
 
 .back-btn{
@@ -411,6 +407,62 @@ Employee Details Page
 .detail-row:hover{
     background:#f8fafc;
 
+}
+
+/*----------------Add Employee Page----------------*/
+
+.page-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    
+}
+
+.page-header h1{
+    color: #1e293d;
+    margin: 0;
+}
+
+#employeeForm{
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.form-group{
+    margin-bottom: 20px;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.form-group input,
+.form-group select{
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-buttons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 10px;
 }
 
 
